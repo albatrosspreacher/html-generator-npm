@@ -1,0 +1,29 @@
+{
+  "name": "html-generator-npm",
+  "version": "1.0.0",
+  "description": "a simple package to generate html code from the server side :D",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nandiniproothi/html-generator-npm.git"
+  },
+  "keywords": [
+    "html",
+    "node.js"
+  ],
+  "author": "Nandini Proothi",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nandiniproothi/html-generator-npm/issues"
+  },
+  "homepage": "https://github.com/nandiniproothi/html-generator-npm#readme",
+  "dependencies": {
+    "toris-format": "^1.7.25"
+  }
+}
