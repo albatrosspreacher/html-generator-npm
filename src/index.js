@@ -153,8 +153,3 @@ fs.writeFile(fileName, formattedHTML, function(err) {
 });
 
 }
-
-//initiateFile();
-//appendButton("hi", "btn-primary");
-//endFile();
-//formatFile();
