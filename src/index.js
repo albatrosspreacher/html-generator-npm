@@ -9,7 +9,7 @@ fs.open(fileName, 'r+', function(err, fd) {
   }   
 });
 
-function initiateFile(){
+module.exports = function initiateFile(){
     var html = `
     <html>
     <head>
@@ -70,7 +70,7 @@ function initiateFile(){
     
 }
 
-function appendButton(text, color){
+module.exports = function appendButton(text, color){
   
   var html = 
   `
@@ -84,7 +84,7 @@ function appendButton(text, color){
   );
 }
 
-function appendCard(cardTitle, cardImageURL, cardBody, width){
+module.exports = function appendCard(cardTitle, cardImageURL, cardBody, width){
     var html = 
     `
     <div class="card" style="width: ${width};">
@@ -103,7 +103,7 @@ function appendCard(cardTitle, cardImageURL, cardBody, width){
     );
 }
 
-function appendParagraph(text, alignment){
+module.exports = function appendParagraph(text, alignment){
 
     var html = 
     `
@@ -118,7 +118,7 @@ function appendParagraph(text, alignment){
     
 }
 
-function endFile(){
+module.exports = function endFile(){
 
     var html = 
     `
@@ -133,7 +133,7 @@ function endFile(){
     );
 }
 
-function formatFile(){
+module.exports = function formatFile(){
   fs.readFile(fileName, 'utf8', function(err, data){
       
     // Display the file content
