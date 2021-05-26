@@ -1,6 +1,6 @@
 # html-generator-npm v1.0.2
 
-A [Node.js](https://nodejs.org/) module that generates HTML code.
+A [Node.js](https://nodejs.org/) package that generates HTML code.
 
 # Installation
 
