@@ -1,4 +1,4 @@
-# html-generator-npm v1.0.0
+# html-generator-npm v1.0.2
 
 A [Node.js](https://nodejs.org/) module that generates HTML code.
 
@@ -18,6 +18,8 @@ In Node.js, `var htmlGenerator = require('html-generator-npm) //load the package
 - appendParagraph(text, alignment): `text` to be written in the paragraph, `alignment` must be written in bootstrap classname format i.e. `text-left` 
 - endFile(): must be called towards the end, ends the file with basic HTML code.
 - formatFile(): must be called last; uses a depenedency, [toris-format](https://www.npmjs.com/package/toris-format)
+- appendHeading(text, heading): `text` must be the heading content, `heading` must specify the number i.e "1" for "h1" in HTML
+- appendInputField(type, placeholder): `type` is the type of input (email, password, etc), `placeholder` text
 
 # Contribution
 

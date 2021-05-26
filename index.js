@@ -1,5 +1,6 @@
 var fs = require('fs');
 const format = require('toris-format');
+var async = require("async");
 
 var fileName = 'generated-index.html';
 var x, formattedHTML;
@@ -9,7 +10,7 @@ fs.open(fileName, 'r+', function(err, fd) {
   }   
 });
 
-module.exports = function initiateFile(){
+async function initiateFile(){
     var html = `
     <html>
     <head>
@@ -60,6 +61,13 @@ module.exports = function initiateFile(){
         <link rel="stylesheet" href="/index.css"/>
       </head>
       <body>
+      <style>
+      .row{
+        padding: 5px;
+      }
+      </style>
+      <!-- content begins -->
+      <div class="container" style="padding: 10px">
     `
     fs.appendFile(fileName, html, {}, (err) => {
       if(err){
@@ -70,11 +78,12 @@ module.exports = function initiateFile(){
     
 }
 
-module.exports = function appendButton(text, color){
-  
+async function appendHeading(text, heading){
   var html = 
   `
-  <button type="button" class= "btn ${color}">${text}</button>
+  <div class="row">
+  <h${heading} style="padding: 5px;">${text}</h${heading}> <!-- heading added -->
+  </div>
   `
   fs.appendFile(fileName, html, {}, (err) => {
     if(err){
@@ -84,9 +93,47 @@ module.exports = function appendButton(text, color){
   );
 }
 
-module.exports = function appendCard(cardTitle, cardImageURL, cardBody, width){
+async function appendInputField(type, placeholder){
+  var html = 
+  `
+  <div class="row">
+    <div class="col-sm-3">
+    <input type="${type}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="${placeholder}"> <!-- input field added -->
+    </div>
+  </div>
+  `
+  fs.appendFile(fileName, html, {}, (err) => {
+    if(err){
+      console.log("Error! -> " + err);
+    }
+  }
+  );
+}
+
+async function appendButton(text, color){
+  
+  var html = 
+  `
+  <div class="row">
+  <div class="col-sm-3">
+  <button type="button" class= "btn ${color}">${text}</button> <!-- button added -->
+  </div>
+  </div>
+  `
+  fs.appendFile(fileName, html, {}, (err) => {
+    if(err){
+      console.log("Error! -> " + err);
+    }
+  }
+  );
+}
+
+async function appendCard(cardTitle, cardImageURL, cardBody, width){
     var html = 
     `
+    <!-- card begins -->
+    <div class="row">
+    <div class="col-sm-3">
     <div class="card" style="width: ${width};">
     <img class="card-img-top" src="${cardImageURL}" alt="Card image cap">
     <div class="card-body">
@@ -94,6 +141,9 @@ module.exports = function appendCard(cardTitle, cardImageURL, cardBody, width){
       <p class="card-text">${cardBody}</p>
     </div>
     </div>
+    </div>
+    </div>
+    <!-- card ends -->
     `
     fs.appendFile(fileName, html, {}, (err) => {
       if(err){
@@ -103,11 +153,15 @@ module.exports = function appendCard(cardTitle, cardImageURL, cardBody, width){
     );
 }
 
-module.exports = function appendParagraph(text, alignment){
+async function appendParagraph(text, alignment){
 
     var html = 
     `
-    <p class="${alignment}">${text}</p>
+    <div class="row">
+    <div class="col-sm-3">
+    <p class="${alignment}">${text}</p> <!-- paragraph added -->
+    </div>
+    </div>
     `
     fs.appendFile(fileName, html, {}, (err) => {
       if(err){
@@ -118,10 +172,12 @@ module.exports = function appendParagraph(text, alignment){
     
 }
 
-module.exports = function endFile(){
+async function endFile(){
 
     var html = 
     `
+    </div>
+    <!-- content ends -->
     </body>
     </html>
     `
@@ -133,7 +189,7 @@ module.exports = function endFile(){
     );
 }
 
-module.exports = function formatFile(){
+async function formatFile(){
   fs.readFile(fileName, 'utf8', function(err, data){
       
     // Display the file content
@@ -153,3 +209,5 @@ fs.writeFile(fileName, formattedHTML, function(err) {
 });
 
 }
+
+module.exports = {initiateFile, appendHeading,appendInputField, appendButton, appendCard, appendParagraph, endFile, formatFile}

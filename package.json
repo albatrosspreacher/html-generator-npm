@@ -1,6 +1,6 @@
 {
   "name": "html-generator-npm",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "a simple package to generate html code from the server side :D",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/nandiniproothi/html-generator-npm#readme",
   "dependencies": {
+    "async": "^3.2.0",
+    "fs": "*",
+    "html-generator-npm": "^1.0.0",
     "toris-format": "^1.7.25"
   }
 }
