@@ -1,7 +1,7 @@
 var fs = require('fs');
 const format = require('toris-format');
 
-var fileName = 'newfile.html';
+var fileName = 'generated-index.html';
 var x, formattedHTML;
 fs.open(fileName, 'r+', function(err, fd) {
   if (err) {
@@ -157,4 +157,4 @@ fs.writeFile(fileName, formattedHTML, function(err) {
 //initiateFile();
 //appendButton("hi", "btn-primary");
 //endFile();
-formatFile();
+//formatFile();
