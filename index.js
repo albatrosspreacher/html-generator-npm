@@ -134,7 +134,7 @@ async function appendCard(cardTitle, cardImageURL, cardBody, width){
     <!-- card begins -->
     <div class="row">
     <div class="col-sm-3">
-    <div class="card" style="width: ${width};">
+    <div class="card" style="width: ${width}px;">
     <img class="card-img-top" src="${cardImageURL}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">${cardTitle}</h5>
@@ -170,6 +170,13 @@ async function appendParagraph(text, alignment){
     }
     );
     
+}
+
+async function appendIframe(url, height, width){
+  var html = 
+  `
+  <iframe src="${url}" height="${height}" width="${width}" title="exampleIframe"></iframe> 
+  `
 }
 
 async function endFile(){
@@ -210,4 +217,4 @@ fs.writeFile(fileName, formattedHTML, function(err) {
 
 }
 
-module.exports = {initiateFile, appendHeading,appendInputField, appendButton, appendCard, appendParagraph, endFile, formatFile}
+module.exports = {initiateFile, appendHeading,appendInputField, appendButton, appendCard, appendParagraph, appendIframe, endFile, formatFile}

@@ -1,6 +1,6 @@
 {
   "name": "html-generator-npm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a simple package to generate html code from the server side :D",
   "main": "index.js",
   "scripts": {
